@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2022-11-09T11:08:18 IST" name="Suite" finished-at="2022-11-09T11:09:03 IST" duration-ms="45267">
+    <groups>
+    </groups>
+    <test started-at="2022-11-09T11:08:18 IST" name="Test" finished-at="2022-11-09T11:09:03 IST" duration-ms="45267">
+      <class name="com.testpoint.tests.TestCases">
+        <test-method is-config="true" signature="beforeTest()[pri:0, instance:com.testpoint.tests.TestCases@49049a04]" started-at="2022-11-09T11:08:18 IST" name="beforeTest" finished-at="2022-11-09T11:08:21 IST" duration-ms="3363" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeTest -->
+        <test-method signature="TestCase_01()[pri:0, instance:com.testpoint.tests.TestCases@49049a04]" started-at="2022-11-09T11:08:21 IST" name="TestCase_01" finished-at="2022-11-09T11:09:02 IST" duration-ms="40713" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TestCase_01 -->
+        <test-method is-config="true" signature="afterTest()[pri:0, instance:com.testpoint.tests.TestCases@49049a04]" started-at="2022-11-09T11:09:02 IST" name="afterTest" finished-at="2022-11-09T11:09:03 IST" duration-ms="1160" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterTest -->
+      </class> <!-- com.testpoint.tests.TestCases -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
+</testng-results>
