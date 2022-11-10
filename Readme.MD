@@ -1,6 +1,10 @@
 ## Vansah Automation Demo
 
-This Selenium TestNG Automation framework is just a demo framework to start and understand the working of Vansah - Test Management for JIRA binder.
+This Selenium TestNG Automation framework is just a demo and quick start to Automated Testing with Vansah - Test Management for Jira.
+
+## Introduction
+
+Vansah's API can be used to integrate Vansah with various tools, automation and development frameworks including third-party applications. The main usage for the API is to allow our customers to integrate their automated tests and submit test results to Vansah Test Management for Jira. For a full detail of what other tasks you can perform using the API the list can be obtained from this documentation. For more information on API token required for connecting to Jira see: https://community.vansah.com/posts/how-to-generate-a-vansah-api-token-from-jira
 
 
 ## Tools
@@ -24,9 +28,9 @@ This Selenium TestNG Automation framework is just a demo framework to start and 
 ### Step 3
 
     Add VansahConnectToken in VansahNode.java File
-    Token should be obtained from Jira Workspace
+    Token should be obtained from your Jira Workspace
     
-<a href="">Click to Know How to obtain VansahConnectToken</a>
+<a href="https://community.vansah.com/posts/how-to-generate-a-vansah-api-token-from-jira">Click to Know How to obtain your Vansah API Connect Token</a>
 
 ### Step 4
 
