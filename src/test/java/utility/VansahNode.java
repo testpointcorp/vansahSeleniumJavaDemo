@@ -1,4 +1,4 @@
-package com.testpoint.vansah;
+package utility;
 
 
 import java.io.File;
@@ -450,7 +450,7 @@ public class VansahNode {
 								+ "    }\r\n"
 								+ "}");
 					}
-										System.out.println(requestBody);
+					//System.out.println(requestBody);
 					
 					jsonRequestBody = Unirest.post(ADD_TEST_LOG).headers(headers).body(requestBody).asJson();
 				}

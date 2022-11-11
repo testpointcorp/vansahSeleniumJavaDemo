@@ -1,7 +1,9 @@
-package com.testpoint.tests;
+package testcases;
 
 import org.testng.annotations.Test;
-import com.testpoint.vansah.VansahNode;
+
+import utility.VansahNode;
+
 import org.testng.annotations.BeforeTest;
 import java.time.Duration;
 import java.util.concurrent.TimeUnit;
