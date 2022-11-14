@@ -60,12 +60,12 @@ public class VansahNode {
 
 
 	//--------------------------------------------------------------------------------------------------------------------
-	private String TESTFOLDERS_ID;  //Mandatory (GUID Test folder Identifer) Optional if issue_key is provided
+	private String TESTFOLDERS_ID;  //Mandatory (GUID Test folder Identifier) Optional if issue_key is provided
 	private String JIRA_ISSUE_KEY;  //Mandatory (JIRA ISSUE KEY) Optional if Test Folder is provided
 	private String SPRINT_KEY; //Mandatory (SPRINT KEY)
 	private String CASE_KEY;   //CaseKey ID (Example - TEST-C1) Mandatory
 	private String RELEASE_KEY;  //Release Key (JIRA Release/Version Key) Mandatory
-	private String ENVIRONMENT_KEY; //Enivronment ID from Vansah for JIRA app. (Example SYS or UAT ) Mandatory
+	private String ENVIRONMENT_KEY; //Environment ID from Vansah for JIRA app. (Example SYS or UAT ) Mandatory
 	private int RESULT_KEY;    // Result Key such as (Result value. Options: (0 = N/A, 1= FAIL, 2= PASS, 3 = Not tested)) Mandatory
 	private boolean SEND_SCREENSHOT;   // true or false If Required to take a screenshot of the webPage that to be tested.
 	private String COMMENT;  //Actual Result 	
