@@ -17,7 +17,7 @@ Vansah's API can be used to integrate Vansah with various tools, automation and 
 </ul>
 
 ## How to Run
-   <a href="https://community.vansah.com/posts/vansah-java-api-binder-for-selenium-adding-vansah-java-binder-in-maven-projects-selenium-testng">Follow the Community Course to Start with VansahSeleniumJavaDemo</a>
+   <a href="https://community.vansah.com/posts/vansah-java-api-binder-for-selenium-how-to-start-selenium-automation-with-vansah-java-binder">Follow the Community Course to Start with VansahSeleniumJavaDemo</a>
 
     
 
