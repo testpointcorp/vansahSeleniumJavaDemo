@@ -43,7 +43,8 @@ public class VansahNode {
 
 
 	//--------------------------- INFORM YOUR UNIQUE VANSAH TOKEN HERE ---------------------------------------------------
-	private static final String VANSAH_TOKEN = "Your Token Here";
+	private static final String VANSAH_TOKEN = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJjb20udmFuc2FoLmppcmEudmFuc2FoLXBsdWdpbiIsImlhdCI6MTY2ODQ4MzY2NCwic3ViIjoiNjE5ZGMzNmJkNTk4NmMwMDZhZDE3YjVlIiwiZXhwIjoyNjY4NDgzNjY0LCJhdWQiOlsiY2Q3YTJhZmQtYzgyYy0zYzY2LTgxMDItZWZmOGIwN2E5MjExIl0sInR5cGUiOiJjb25uZWN0In0.TWylCkTRCmmTWoZKzyIBuEG39b1bGX1mQMhzJJd2bmQ";
+
 
 	//--------------------------------------------------------------------------------------------------------------------
 
@@ -350,8 +351,8 @@ public class VansahNode {
 				if(type == "addTestLog") {
 					requestBody =  addTestLogProp();
 					if(SEND_SCREENSHOT) {
-						System.out.println(requestBody);
-						requestBody.accumulate("attachments", addAttachment(FILE));
+						
+						requestBody.append("attachments", addAttachment(FILE));
 						//System.out.println(requestBody);
 					}
 					//System.out.println(requestBody);
@@ -369,7 +370,7 @@ public class VansahNode {
 					}
 					requestBody.accumulate("result", resultObj(RESULT_KEY));
 					if(SEND_SCREENSHOT) {
-						requestBody.accumulate("attachments", addAttachment(FILE));
+						requestBody.append("attachments", addAttachment(FILE));
 					}
 					requestBody.accumulate("actualResult", COMMENT);;
 					
@@ -386,7 +387,7 @@ public class VansahNode {
 					}
 					requestBody.accumulate("result", resultObj(RESULT_KEY));
 					if(SEND_SCREENSHOT) {
-						requestBody.accumulate("attachments", addAttachment(FILE));
+						requestBody.append("attachments", addAttachment(FILE));
 					}
 					requestBody.accumulate("actualResult", COMMENT);;
 					
@@ -412,7 +413,7 @@ public class VansahNode {
 					requestBody.accumulate("result", resultObj(RESULT_KEY));
 					requestBody.accumulate("actualResult", COMMENT);
 					if(SEND_SCREENSHOT) {
-						requestBody.accumulate("attachments", addAttachment(FILE));
+						requestBody.append("attachments", addAttachment(FILE));
 					}
 					//System.out.println(requestBody);
 					jsonRequestBody = Unirest.put(UPDATE_TEST_LOG+TEST_LOG_IDENTIFIER).headers(headers).body(requestBody).asJson();
@@ -631,7 +632,7 @@ public class VansahNode {
 		JSONObject attachmentsInfo = new JSONObject();
 		attachmentsInfo.accumulate("name", FileName());
 		attachmentsInfo.accumulate("extension", "png");
-		System.out.println(attachmentsInfo);
+		//System.out.println(attachmentsInfo);
 		attachmentsInfo.accumulate("file", FILE);
 
 		return attachmentsInfo;

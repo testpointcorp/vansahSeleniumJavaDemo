@@ -24,7 +24,7 @@ public class AddTestRunFromTestFolderScreen extends AddTestRunFromJiraIssueScree
 		private static String testFolderID = "cb1a7eb2-6499-11ed-8e52-5658ef8eadd5"; //TestFolder ID to which test Execution is to be perform
 		
 		//Required
-		private static String testCase = "DEMO-C1";
+		private static String testCase = "DEMO-C2";
 
 		//Optional
 		private static String environment = "UAT"; //Environment Name to which test execution of a test case is to be perform
