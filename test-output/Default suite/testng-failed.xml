@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.testpoint.tests.TestCases">
+      <class name="testcases.TestCases">
         <methods>
-          <include name="TestCase_01"/>
+          <include name="Addtestrunfronmjira"/>
           <include name="beforeTest"/>
           <include name="afterTest"/>
         </methods>
-      </class> <!-- com.testpoint.tests.TestCases -->
+      </class> <!-- testcases.TestCases -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
