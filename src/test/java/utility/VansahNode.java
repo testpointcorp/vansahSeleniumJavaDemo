@@ -43,7 +43,7 @@ public class VansahNode {
 
 
 	//--------------------------- INFORM YOUR UNIQUE VANSAH TOKEN HERE ---------------------------------------------------
-	private static final String VANSAH_TOKEN = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJjb20udmFuc2FoLmppcmEudmFuc2FoLXBsdWdpbiIsImlhdCI6MTY2ODQ4MzY2NCwic3ViIjoiNjE5ZGMzNmJkNTk4NmMwMDZhZDE3YjVlIiwiZXhwIjoyNjY4NDgzNjY0LCJhdWQiOlsiY2Q3YTJhZmQtYzgyYy0zYzY2LTgxMDItZWZmOGIwN2E5MjExIl0sInR5cGUiOiJjb25uZWN0In0.TWylCkTRCmmTWoZKzyIBuEG39b1bGX1mQMhzJJd2bmQ";
+	private static final String VANSAH_TOKEN = "Your Token Here";
 
 
 	//--------------------------------------------------------------------------------------------------------------------
@@ -328,7 +328,7 @@ public class VansahNode {
 						requestBody.accumulate("properties", properties());
 					}
 
-					//System.out.print(requestBody);
+					
 
 					jsonRequestBody = Unirest.post(ADD_TEST_RUN).headers(headers).body(requestBody).asJson();
 
@@ -341,7 +341,7 @@ public class VansahNode {
 						requestBody.accumulate("properties", properties());
 					}
 
-					//System.out.print(requestBody);
+					
 
 					jsonRequestBody = Unirest.post(ADD_TEST_RUN).headers(headers).body(requestBody).asJson();
 
@@ -353,9 +353,9 @@ public class VansahNode {
 					if(SEND_SCREENSHOT) {
 						
 						requestBody.append("attachments", addAttachment(FILE));
-						//System.out.println(requestBody);
+						
 					}
-					//System.out.println(requestBody);
+					
 					jsonRequestBody = Unirest.post(ADD_TEST_LOG).headers(headers).body(requestBody).asJson();
 				}
 
@@ -374,7 +374,7 @@ public class VansahNode {
 					}
 					requestBody.accumulate("actualResult", COMMENT);;
 					
-					//System.out.println(requestBody);
+					
 
 					jsonRequestBody = Unirest.post(ADD_TEST_RUN).headers(headers).body(requestBody).asJson();
 				}
@@ -391,7 +391,7 @@ public class VansahNode {
 					}
 					requestBody.accumulate("actualResult", COMMENT);;
 					
-					//System.out.println(requestBody);
+					
 
 
 					jsonRequestBody = Unirest.post(ADD_TEST_RUN).headers(headers).body(requestBody).asJson();
@@ -415,7 +415,7 @@ public class VansahNode {
 					if(SEND_SCREENSHOT) {
 						requestBody.append("attachments", addAttachment(FILE));
 					}
-					//System.out.println(requestBody);
+					
 					jsonRequestBody = Unirest.put(UPDATE_TEST_LOG+TEST_LOG_IDENTIFIER).headers(headers).body(requestBody).asJson();
 				}
 
@@ -528,13 +528,6 @@ public class VansahNode {
 			if(ENVIRONMENT_NAME.length()>=2) {
 				Properties.accumulate("environment", environment);
 			}
-		}
-
-		if(Properties.length()==0) {
-			System.out.println("Test Run Properties is null");
-		}
-		else {
-			System.out.println("Test Run Properties is added successfully with the Request");
 		}
 
 		return Properties;

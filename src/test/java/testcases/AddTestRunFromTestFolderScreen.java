@@ -24,14 +24,14 @@ public class AddTestRunFromTestFolderScreen extends AddTestRunFromJiraIssueScree
 		private static String testFolderID = "cb1a7eb2-6499-11ed-8e52-5658ef8eadd5"; //TestFolder ID to which test Execution is to be perform
 		
 		//Required
-		private static String testCase = "DEMO-C2";
+		private static String testCase = "DEMO-C1";
 
 		//Optional
 		private static String environment = "UAT"; //Environment Name to which test execution of a test case is to be perform
 		
 
 		//Optional if TestFolder ID is provided
-		private static String issueKey = "DEMO-1"; //IssueKey to which test Execution is to be perform
+		private static String issueKey = null; //IssueKey to which test Execution is to be perform
 				
 		//Optional 
 		private static String sprintName = null; //Sprint Name for current sprint for which test execution is to be perform
@@ -45,8 +45,11 @@ public class AddTestRunFromTestFolderScreen extends AddTestRunFromJiraIssueScree
 			//To create new Instance of Chrome
 			driver = new ChromeDriver();
 			
-			//Provide TestFolder ID , JIRA Issue, Sprint Key, Sprint Release and Environment
-			testExecute = new VansahNode(testFolderID,issueKey);
+			//Provide TestFolder ID
+			testExecute = new VansahNode();
+			
+			//Set TestFolder ID
+			testExecute.setTESTFOLDERS_ID(testFolderID);
 			
 			//Set Environment 
 			testExecute.setENVIRONMENT_NAME(environment);
@@ -54,14 +57,14 @@ public class AddTestRunFromTestFolderScreen extends AddTestRunFromJiraIssueScree
 			//Test Case started 
 			//Creating Test Run Identifer
 			//Running Test Case for an Issue
-			testExecute.addTestRunFromJIRAIssue(testCase);
+			testExecute.addTestRunFromTestFolder(testCase);
 		
 			driver.get("https://vansah.com");
 			driver.manage().window().maximize();
 
 			//testExecute test step #1 , User should be able to open the vansah.com
 			System.out.println(driver.getCurrentUrl());
-			if(driver.getCurrentUrl().equals("https://vansah.com//")) {
+			if(driver.getCurrentUrl().equals("https://vansah.com/")) {
 
 				//0 = N/A, 1 = FAILED, 2 = PASSED, 3 = UNTESTED
 				//Add logs for each step function(ResultID, AcutalResultComment, TestStepID, screenshotTrueorFalse, chromedriver/OtherBroswerdriver);
@@ -110,7 +113,7 @@ public class AddTestRunFromTestFolderScreen extends AddTestRunFromJiraIssueScree
 			wait.until(ExpectedConditions.urlToBe("https://marketplace.atlassian.com/apps/1224250/vansah-test-management-for-jira?tab=overview&hosting=cloud"));
 
 
-			if(driver.getCurrentUrl().equals("https://marketplace.atlassian.com/apps/1224250/vansah-test-management-for-jira?tab=overview&hosting=cloud/")) {
+			if(driver.getCurrentUrl().equals("https://marketplace.atlassian.com/apps/1224250/vansah-test-management-for-jira?tab=overview&hosting=cloud")) {
 
 				//0 = N/A, 1 = FAILED, 2 = PASSED, 3 = UNTESTED
 				//Add logs for each step function(ResultID, AcutalResultComment, TestStepID, screenshotTrueorFalse, chromedriver/OtherBroswerdriver);

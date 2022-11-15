@@ -5,7 +5,7 @@
 		<classes>
 			<class name="testcases.AddTestRunFromTestFolderScreen">
 				<methods>
-					<exclude name="addTestRunFromJiraIssue" />
+					<include name="addTestRunFromJiraIssue" />
 					<include name="addTestRunFromTestFolder" />
 				</methods>
 			</class>

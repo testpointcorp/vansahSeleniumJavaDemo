@@ -85,8 +85,10 @@ public class AddTestRunFromJiraIssueScreen {
 		//To create new Instance of Chrome
 		driver = new ChromeDriver();
 		
-		//Provide TestFolder ID , JIRA Issue, Sprint Key, Sprint Release and Environment
-		testExecute = new VansahNode(testFolderID,issueKey);
+		//Provide JIRA Issue
+		testExecute = new VansahNode();
+		//Set Jira Issue
+		testExecute.setJIRA_ISSUE_KEY(issueKey);
 		//Set Environment 
 		testExecute.setENVIRONMENT_NAME(environment);
 		
@@ -101,7 +103,7 @@ public class AddTestRunFromJiraIssueScreen {
 
 		//testExecute test step #1 , User should be able to open the vansah.com
 		System.out.println(driver.getCurrentUrl());
-		if(driver.getCurrentUrl().equals("https://vansah.com//")) {
+		if(driver.getCurrentUrl().equals("https://vansah.com/")) {
 
 			//0 = N/A, 1 = FAILED, 2 = PASSED, 3 = UNTESTED
 			//Add logs for each step function(ResultID, AcutalResultComment, TestStepID, screenshotTrueorFalse, chromedriver/OtherBroswerdriver);
@@ -160,7 +162,7 @@ public class AddTestRunFromJiraIssueScreen {
 		wait.until(ExpectedConditions.urlToBe("https://marketplace.atlassian.com/apps/1224250/vansah-test-management-for-jira?tab=overview&hosting=cloud"));
 
 
-		if(driver.getCurrentUrl().equals("https://marketplace.atlassian.com/apps/1224250/vansah-test-management-for-jira?tab=overview&hosting=cloud/")) {
+		if(driver.getCurrentUrl().equals("https://marketplace.atlassian.com/apps/1224250/vansah-test-management-for-jira?tab=overview&hosting=cloud")) {
 
 			//0 = N/A, 1 = FAILED, 2 = PASSED, 3 = UNTESTED
 			//Add logs for each step function(ResultID, AcutalResultComment, TestStepID, screenshotTrueorFalse, chromedriver/OtherBroswerdriver);
