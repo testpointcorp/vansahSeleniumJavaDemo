@@ -32,14 +32,9 @@ Vansah's API can be used to integrate Vansah with various tools, automation and 
     
 <a href="https://community.vansah.com/posts/how-to-generate-a-vansah-api-token-from-jira">Click to Know How to obtain your Vansah API Connect Token</a>
 
-### Step 4
-
-    Replace All the Project Info in Tests.java file
+### Step 4 
     
-### Step 5
-
-    Click on TestNg.xml and Run as TestNG suite
-    
+     Run as Maven test
 
 
     
