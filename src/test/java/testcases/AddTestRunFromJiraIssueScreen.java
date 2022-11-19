@@ -106,14 +106,14 @@ public class AddTestRunFromJiraIssueScreen {
 		if(driver.getCurrentUrl().equals("https://vansah.com/")) {
 
 			//0 = N/A, 1 = FAILED, 2 = PASSED, 3 = UNTESTED
-			//Add logs for each step function(ResultID, AcutalResultComment, TestStepID, screenshotTrueorFalse, chromedriver/OtherBroswerdriver);
+			//Add logs for each step function(ResultID, ActualResultComment, TestStepID, screenshotTrueorFalse, chromedriver/OtherBroswerdriver);
 			testExecute.addTestLog(Result.PASSED.id, "As expected, Url is opened", TestStep.Step_1.number, Screenshot.TRUE.takeScreenshot, driver);
 			
 		}
 		else {
 
 			//0 = N/A, 1 = FAILED, 2 = PASSED, 3 = UNTESTED
-			//Add logs for each step function(ResultID, AcutalResultComment, TestStepID, screenshotTrueorFalse, chromedriver/OtherBroswerdriver);
+			//Add logs for each step function(ResultID, ActualResultComment, TestStepID, screenshotTrueorFalse, chromedriver/OtherBroswerdriver);
 			testExecute.addTestLog(Result.FAILED.id, "URL not Found",TestStep.Step_1.number, Screenshot.TRUE.takeScreenshot, driver);
 		}
 
@@ -125,12 +125,12 @@ public class AddTestRunFromJiraIssueScreen {
 		if(driver.getTitle().equals("Vansah | Jira Test Management App")) {
 
 			//0 = N/A, 1 = FAILED, 2 = PASSED, 3 = UNTESTED
-			//Add logs for each step function(ResultID, AcutalResultComment, TestStepID, screenshotTrueorFalse, chromedriver/OtherBroswerdriver);
+			//Add logs for each step function(ResultID, ActualResultComment, TestStepID, screenshotTrueorFalse, chromedriver/OtherBroswerdriver);
 			testExecute.addTestLog(Result.PASSED.id, "As expected, title is matched", TestStep.Step_2.number, Screenshot.TRUE.takeScreenshot, driver);
 
 		}
 		else {
-			//Add logs for each step function(ResultID, AcutalResultComment, TestStepID, screenshotTrueorFalse, chromedriver/OtherBroswerdriver);
+			//Add logs for each step function(ResultID, ActualResultComment, TestStepID, screenshotTrueorFalse, chromedriver/OtherBroswerdriver);
 			testExecute.addTestLog(Result.FAILED.id, "Title is not matched", TestStep.Step_2.number, Screenshot.TRUE.takeScreenshot, driver);
 		}
 
@@ -165,14 +165,14 @@ public class AddTestRunFromJiraIssueScreen {
 		if(driver.getCurrentUrl().equals("https://marketplace.atlassian.com/apps/1224250/vansah-test-management-for-jira?tab=overview&hosting=cloud")) {
 
 			//0 = N/A, 1 = FAILED, 2 = PASSED, 3 = UNTESTED
-			//Add logs for each step function(ResultID, AcutalResultComment, TestStepID, screenshotTrueorFalse, chromedriver/OtherBroswerdriver);
+			//Add logs for each step function(ResultID, ActualResultComment, TestStepID, screenshotTrueorFalse, chromedriver/OtherBroswerdriver);
 			testExecute.addTestLog(Result.PASSED.id, "As expected, url is matched", TestStep.Step_3.number, Screenshot.TRUE.takeScreenshot, driver);
 
 		}
 		else {
 
 			//0 = N/A, 1 = FAILED, 2 = PASSED, 3 = UNTESTED
-			//Add logs for each step function(ResultID, AcutalResultComment, TestStepID, screenshotTrueorFalse, chromedriver/OtherBroswerdriver);
+			//Add logs for each step function(ResultID, ActualResultComment, TestStepID, screenshotTrueorFalse, chromedriver/OtherBroswerdriver);
 			testExecute.addTestLog(Result.FAILED.id, "Url is not matched", TestStep.Step_3.number, Screenshot.TRUE.takeScreenshot, driver);
 		}
 		driver.quit();  //Closing the current driver session

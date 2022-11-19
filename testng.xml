@@ -3,10 +3,10 @@
 <suite name="Suite">
 	<test thread-count="5" name="Test">
 		<classes>
-			<class name="testcases.AddTestRunFromTestFolderScreen">
+			<class name="testcases.AddQuickTestRunFromJiraIssue">
 				<methods>
-					<include name="addTestRunFromJiraIssue" />
-					<include name="addTestRunFromTestFolder" />
+					<exclude name="addTestRunFromJiraIssue" />
+					<include name="addQuickTestFromJiraIssue" />
 				</methods>
 			</class>
 		</classes>
