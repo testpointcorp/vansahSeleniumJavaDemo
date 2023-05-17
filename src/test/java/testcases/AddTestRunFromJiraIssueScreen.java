@@ -10,6 +10,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -82,8 +84,11 @@ public class AddTestRunFromJiraIssueScreen {
 	
 	@Test
 	public void addTestRunFromJiraIssue() throws Exception {
+		//ChromeOptions to fix Invalid Status code=403
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments("start-maximized","--remote-allow-origins=*");
 		//To create new Instance of Chrome
-		driver = new ChromeDriver();
+		driver = new ChromeDriver(options);
 		
 		//Provide JIRA Issue
 		testExecute = new VansahNode();
@@ -98,7 +103,7 @@ public class AddTestRunFromJiraIssueScreen {
 		testExecute.addTestRunFromJIRAIssue(testCase);
 		
 		driver.get("https://vansah.com");
-		driver.manage().window().maximize();
+		
 
 
 		//testExecute test step #1 , User should be able to open the vansah.com

@@ -6,8 +6,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import utility.VansahNode;
@@ -39,11 +41,14 @@ public class AddQuickTestRunFromJiraIssue extends AddTestRunFromJiraIssueScreen{
 		//Optional
 		private static String releaseName = null; //Release Name linked with the current sprint and to the test case.
 		
+		
 		@Test
 		public void addQuickTestFromJiraIssue() throws Exception {
-			
+			//ChromeOptions to fix Invalid Status code=403
+			ChromeOptions options = new ChromeOptions();
+			options.addArguments("start-maximized","--remote-allow-origins=*");
 			//To create new Instance of Chrome
-			driver = new ChromeDriver();
+			driver = new ChromeDriver(options);
 			
 			//Provide TestFolder ID
 			testExecute = new VansahNode();
@@ -57,7 +62,7 @@ public class AddQuickTestRunFromJiraIssue extends AddTestRunFromJiraIssueScreen{
 			//Test Case started 
 		
 			driver.get("https://vansah.com");
-			driver.manage().window().maximize();
+			
 
 			//testExecute test step #1 , User should be able to open the vansah.com
 			System.out.println(driver.getCurrentUrl());
