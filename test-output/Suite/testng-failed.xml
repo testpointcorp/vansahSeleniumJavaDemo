@@ -3,13 +3,12 @@
 <suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Test(failed)">
     <classes>
-      <class name="com.testpoint.tests.TestCases">
+      <class name="testcases.AddQuickTestRunFromJiraIssue">
         <methods>
-          <include name="TestCase_01"/>
           <include name="beforeTest"/>
-          <include name="afterTest"/>
+          <include name="addTestRunFromJiraIssue"/>
         </methods>
-      </class> <!-- com.testpoint.tests.TestCases -->
+      </class> <!-- testcases.AddQuickTestRunFromJiraIssue -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

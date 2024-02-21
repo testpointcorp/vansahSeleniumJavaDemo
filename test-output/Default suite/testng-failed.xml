@@ -3,13 +3,12 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="testcases.TestCases">
+      <class name="testcases.AddTestRunFromJiraIssueScreen">
         <methods>
-          <include name="Addtestrunfronmjira"/>
           <include name="beforeTest"/>
-          <include name="afterTest"/>
+          <include name="addTestRunFromJiraIssue"/>
         </methods>
-      </class> <!-- testcases.TestCases -->
+      </class> <!-- testcases.AddTestRunFromJiraIssueScreen -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
