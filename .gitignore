@@ -1,6 +1,8 @@
 # Maven specific
 *.prefs
 /target/
+.classpath
+.project
 
 # TestNG reports
-test-output/
+/test-output/

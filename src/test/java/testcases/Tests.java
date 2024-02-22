@@ -22,9 +22,10 @@ public class Tests {
 	    @BeforeMethod(alwaysRun = true)
 	    @SuppressWarnings({ "unchecked", "static-access" })
 	    public void setUp() throws Exception {
-	    	WebDriverManager.chromedriver().setup();
+	    	
 	        ChromeOptions options = new ChromeOptions();
 	        options.addArguments("start-maximized","--remote-allow-origins=*");
+	        WebDriverManager.chromedriver().setup();
 	        
 	        /* This code snippet retrieves an authentication token required for interacting with the Vansah platform.
 	         * The authentication token is fetched from environment variables, ensuring security and flexibility.
@@ -45,8 +46,7 @@ public class Tests {
 
 	    @AfterMethod(alwaysRun = true)
 	    public void tearDown() throws Exception {
-	    	driver.close();
-	    	//driver.quit();
+	    	driver.quit();
 	    }
 
 }

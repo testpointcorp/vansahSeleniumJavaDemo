@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.CustomAttribute;
 import org.testng.annotations.Test;
 
 public class PositiveScenario extends Tests {
@@ -18,7 +19,11 @@ public class PositiveScenario extends Tests {
 	 */
 	private String TestCaseKey = "TEST-C1";    //Required 
 
-	@Test
+	@Test(attributes = {
+			 @CustomAttribute(name = "Case Key", values = "TSTNG-C2"),
+		      @CustomAttribute(name = "Tested Issue", values = "TSTNG-1"),
+		      @CustomAttribute(name = "Tested Sprint", values = "SM Sprint 1"),
+		      @CustomAttribute(name = "Tested Environment", values = "SYS")})
 	public void Positive_Test_TryNow_Button() throws Exception{
 		
 		//A New Test Run is being created 
@@ -31,6 +36,7 @@ public class PositiveScenario extends Tests {
 
 		}catch(Exception e) {
 			results.updateTestLog("FAILED", e.getMessage(), true, driver);
+			throw e;
 		}
 
 		
@@ -47,6 +53,7 @@ public class PositiveScenario extends Tests {
 
 		}catch(Exception e){
 			results.updateTestLog("FAILED", e.getMessage(), true, driver);
+			throw e;
 		}
 
 	}
