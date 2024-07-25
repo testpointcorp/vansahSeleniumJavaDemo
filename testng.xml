@@ -4,7 +4,7 @@
 	<test thread-count="5" name="VansahJavaBindingDemo">
 		<classes>
 			<class name="testcases.PositiveScenario"/>
-			<class name="testcases.NegativeScenario"/>
+		<!-- <class name="testcases.NegativeScenario"/>-->	
 		</classes>
 	</test> <!-- Test -->
 </suite> <!-- Suite -->

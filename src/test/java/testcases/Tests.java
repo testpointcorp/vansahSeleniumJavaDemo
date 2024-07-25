@@ -1,8 +1,14 @@
 package testcases;
 
+import java.io.File;
+
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.Augmenter;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
@@ -42,6 +48,20 @@ public class Tests {
 			results.setENVIRONMENT_NAME(environment);
 			
 	        driver = new ChromeDriver(options);
+	    }
+	    
+	    public File takess() {
+	    	File screenshotFile = null;
+	    	try {
+	             screenshotFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+	            FileUtils.copyFile(screenshotFile, new File("screenshot.png"));
+	            System.out.println("Screenshot saved successfully.");
+	        } catch (Exception e) {
+	            System.out.println("Failed to take screenshot: " + e.getMessage());
+	        }
+	    	//return null;
+	    	return screenshotFile;
+	    	//return	new File("C:\\Users\\onesh\\OneDrive\\Documents\\GitHub\\vansahSeleniumJavaDemo\\screenshot2132312312312321312.png");
 	    }
 
 	    @AfterMethod(alwaysRun = true)

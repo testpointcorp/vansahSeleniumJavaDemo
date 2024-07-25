@@ -31,10 +31,10 @@ public class NegativeScenario extends Tests {
 		try {
 			driver.get(TestUrl);//Launch the web browser and opens the "TestUrl"
 
-			results.addTestLog("PASSED", "As expected, Url is opened", 1, true, driver);
+			results.addTestLog("PASSED", "As expected, Url is opened", 1,  takess());
 
 		}catch(Exception e) {
-			results.updateTestLog("FAILED", e.getMessage(), true, driver);
+			results.updateTestLog("FAILED", e.getMessage(),  takess());
 			throw e;
 		}
 
@@ -51,10 +51,10 @@ public class NegativeScenario extends Tests {
 			WebDriverWait wait = new WebDriverWait(driver,duration);
 			wait.until(ExpectedConditions.urlToBe("https://marketplace.atlassian.com/apps/1224250/vansah-test-management-for-jira?tab=overview&hosting=cloud"));
 			
-			results.addTestLog("PASSED", "As expected User is directed to the Jira Marketplace landing page", 2, true, driver);
+			results.addTestLog("PASSED", "As expected User is directed to the Jira Marketplace landing page", 2,  takess());
 
 		}catch(Exception e){
-			results.updateTestLog("FAILED", e.getMessage(), true, driver);
+			results.updateTestLog("FAILED", e.getMessage(),  takess());
 			throw e;
 		}
 
