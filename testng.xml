@@ -2,9 +2,14 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Vansah-Selenium-Integration">
 	<test thread-count="5" name="VansahJavaBindingDemo">
+		<groups>
+            <run>
+                <include name="regression" />
+                <exclude name="smoke" />
+            </run>
+        </groups>
 		<classes>
-			<class name="testcases.PositiveScenario"/>
-		<!-- <class name="testcases.NegativeScenario"/>-->	
+			<class name="testpack.VansahIOTests"/>
 		</classes>
 	</test> <!-- Test -->
 </suite> <!-- Suite -->
