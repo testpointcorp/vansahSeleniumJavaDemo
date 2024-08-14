@@ -1,6 +1,6 @@
 # Jenkins Pipeline to run a sample Vansah Automation
 
-## Overview
+
 
 This Jenkins pipeline is configured to build and test a Maven-based Java project, integrating with Vansah Connect for managing test results. It provides a comprehensive CI/CD workflow, incorporating **Jenkins, Maven, NodeJS, TestNG, Vansah Connect CLI, and the Vansah Test Management app**.
  
