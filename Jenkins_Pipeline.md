@@ -1,19 +1,18 @@
-# Jenkins Pipeline to execute Vansah Automation Demo
+# Jenkins Pipeline to implement @vansah/vansah-connect
 
-## Overview
 
-This Jenkins pipeline is designed to build and test a Maven-based Java project and integrate with Vansah Connect for test result management. It demonstrates a complete CI/CD workflow involving Jenkins, Maven, NodeJS, TestNG, Vansah Connect CLI and Vansah Test Management app.  
+
+This Jenkins pipeline is configured to build and test a Maven-based Java project, integrating with Vansah Connect for managing test results. It provides a comprehensive CI/CD workflow, incorporating **Jenkins, Maven, NodeJS, TestNG, Vansah Connect CLI, and the Vansah Test Management app**.
  
- The following stages are performed:
+ The following key stages are executed:
 
-1. **Builds and tests the Maven project**.
-2. **Installs the [@vansah/vansah-connect](https://www.npmjs.com/package/@vansah/vansah-connect) npm package**.
-3. **Retrieves the Vansah API token from Jenkins credentials**.
-4. **Uploads TestNG results to Vansah**.
-
+1. **Build and test the Maven project**.
+2. **Install the [@vansah/vansah-connect](https://www.npmjs.com/package/@vansah/vansah-connect) npm package**.
+3. **Fetch the Vansah API token from Jenkins credentials**.
+4. **Upload TestNG results to Vansah**.
 ## Prerequisites
 
-### 1. Vansah Installed 
+### 1. Vansah Test Management Plugin for JIRA
 - Ensure the Vansah Test Mangement app is installed in your JIRA workspace.
 - Set up your JIRA project and with an Issue and two testcases. Note the **IssueKey / FolderID** and  **two corresponding TestcaseKeys**
   ![Vansah_project](https://github.com/testpointcorp/connect-images/blob/main/JenkinsPipelineForVansahAutomationDemo/Jira_vansahProject.png)
@@ -26,11 +25,70 @@ This Jenkins pipeline is designed to build and test a Maven-based Java project a
      - **GitHub Plugins**: For handling projects in GitHub repository.
 
 ### 3. **Repository Setup**:
-The `Vansah Automation Demo` project contains two testcases (one **positive** and one **negative**) that verifies the Test website https://selenium.vansah.io.
-   - Clone [Vansah Automation Demo](https://github.com/testpointcorp/vansahSeleniumJavaDemo/tree/jenkins-job) to your repository.
-   - Update the `@CustomAttributes` in [VansahIOTests.java](https://github.com/testpointcorp/vansahSeleniumJavaDemo/blob/jenkins-job/src/test/java/testpack/VansahIOTests.java) and [BaseTests.java](https://github.com/testpointcorp/vansahSeleniumJavaDemo/blob/jenkins-job/src/test/java/testpack/BaseTests.java)  according to your Vansah board.
-     ![Vansah_io](https://github.com/testpointcorp/connect-images/blob/main/JenkinsPipelineForVansahAutomationDemo/VasahIoTestsAS.png)
-     ![BaseTests](https://github.com/testpointcorp/connect-images/blob/main/JenkinsPipelineForVansahAutomationDemo/BaseTestsAS.png)
+  The `Vansah Automation Demo` project contains two testcases (one **positive** and one **negative**) that verifies the Test website https://selenium.vansah.io.
+
+- Clone [Vansah Automation Demo](https://github.com/testpointcorp/vansahSeleniumJavaDemo/tree/jenkins-job) to your repository.
+  Update the `@CustomAttributes`according to your Vansah board in
+
+  - Update `JIRA_ISSUE_KEY` with your **JIRA ISSUE** [BaseTests.java](https://github.com/testpointcorp/vansahSeleniumJavaDemo/blob/jenkins-job/src/test/java/testpack/BaseTests.java) 
+    
+   
+    ```Java
+ 
+    public class BaseTests {
+
+	public WebDriver driver;
+	public VansahNode results;
+	public static final String TestUrl = "https://selenium.vansah.io";
+	public static final String JIRA_ISSUE_KEY = "AS-7";
+	public static final String sprintName = ""; //Optional
+	public static final String releaseName = "Release 24"; //Optional
+	public static final String environment = "UAT";  //Optional
+	
+	/*
+	
+	 
+	 Test logic
+	
+	*/
+
+    ```
+        
+
+
+   - [VansahIOTests.java](https://github.com/testpointcorp/vansahSeleniumJavaDemo/blob/jenkins-job/src/test/java/testpack/VansahIOTests.java)
+    ```Java
+   
+   
+              public class VansahIOTests extends BaseTests{
+
+                  @Test(groups = { "regression" },attributes = {
+			                     @CustomAttribute(name = "Case Key", values = "AS-C15"),
+		                      @CustomAttribute(name = "Tested Issue", values = JIRA_ISSUE_KEY),
+		                      @CustomAttribute(name = "Tested Sprint", values = sprintName ),
+		                      @CustomAttribute(name = "Tested Environment", values = environment)})
+		      
+                       	/* 
+    	
+                             Test Logic
+    	
+         	               */
+    	
+                   @Test(groups = { "regression" },attributes = {
+			                      @CustomAttribute(name = "Case Key", values = "AS-C16"),
+		                       @CustomAttribute(name = "Tested Issue", values = JIRA_ISSUE_KEY),
+		                       @CustomAttribute(name = "Tested Sprint", values = sprintName ),
+		                       @CustomAttribute(name = "Tested Environment", values = environment)})
+		    
+		    
+		                       /*
+		  
+		                             Test Logic
+		  
+		                        */
+		          }    
+   ```
+  
 ## Jenkins Configuration
 
 ### Jenkins Plugins
@@ -47,7 +105,7 @@ Ensure the following Jenkins Tools are installed in **Jenkins Dashboard > Manage
 
  **Add Vansah API Token** as Credentials.
  
- [Click to know how to get Vansah API Token](https://community.vansah.com/posts/how-to-generate-a-vansah-api-token-from-jira)
+  [Click to know how to get Vansah API Token](https://community.vansah.com/posts/how-to-generate-a-vansah-api-token-from-jira)
    - Go to **Jenkins Dashboard > Manage Jenkins > Manage Credentials > System > Global credentials (unrestricted) > Add Credentials**.
    - Add a new `Secret text`  credential with your Vansah API token and
      
@@ -93,10 +151,10 @@ pipeline {
                 script {
                     try {
                         // Run Maven build
-                        bat 'mvn clean install'
+                        bat 'mvn clean install'     //Linux: sh 'mvn clean install'
                         
                         // Run Maven tests if the build succeeds
-                        bat 'mvn test'
+                        bat 'mvn test'            //Linux: sh 'mvn test'
                     } catch (Exception e) {
                         echo "Build or test failed: ${e.getMessage()}"
                         currentBuild.result = 'FAILURE'
@@ -111,15 +169,15 @@ pipeline {
         always {
             script {
                 // Install the vansah-connect npm package globally
-                bat 'npm i -g @vansah/vansah-connect'
+                bat 'npm i -g @vansah/vansah-connect'        //Linux:  sh 'npm i -g @vansah/vansah-connect'
 
                 // Fetch Vansah API Token from Jenkins credentials securely
                 withCredentials([string(credentialsId: 'VANSAH_API_TOKEN', variable: 'MY_API_TOKEN')]) {
                     // Configure vansah-connect with the API token
-                    bat 'vansah-connect -c %MY_API_TOKEN%'
+                    bat 'vansah-connect -c %MY_API_TOKEN%'     //Linux sh 'vansah-connect -c %MY_API_TOKEN%'
                     
                     // Upload test results to Vansah
-                    bat 'vansah-connect -f ./target/surefire-reports/testng-results.xml'
+                    bat 'vansah-connect -f ./target/surefire-reports/testng-results.xml'    //Linux sh 'vansah-connect -f ./target/surefire-reports/testng-results.xml'
                 }
             }
         }
@@ -131,31 +189,40 @@ pipeline {
    - Save the configuration and build the pipeline to execute the script.
 ![PipelineScript](https://github.com/testpointcorp/connect-images/blob/main/JenkinsPipelineForVansahAutomationDemo/PipelineScript.png)
 
-## Post-Build Actions Breakdown
+## Post-Build Actions
+The post-build actions involve installing the Vansah CLI tool, securely handling the API token for connection, and uploading test results to Vansah using the specified command and file path.
 
-### Install Vansah-Connect
+  
+   ```shell
+   [Pipeline] bat
 
-- **Command**: `npm i -g @vansah/vansah-connect`
-- **Description**: Installs the Vansah CLI tool globally using npm. This tool is required for interacting with the Vansah API.
+C:\ProgramData\Jenkins\.jenkins\workspace\TrialProjectVansahDemo>npm i -g @vansah/vansah-connect 
 
-### Secure API Token Handling
+changed 102 packages in 14s
 
-- **Command**:
-`withCredentials([string(credentialsId: 'VANSAH_API_TOKEN',        variable: 'MY_API_TOKEN')])'
-- **Description:** This Script assigns the value of the credential `VANSAH_API_TOKEN` to the environment variable `MY_API_TOKEN` which is then used to establish connection with Vansah using the command                                                          
-`vansah-connect -c %MY_API_TOKEN%`
+20 packages are looking for funding
+  run `npm fund` for details
+[Pipeline] withCredentials
+Masking supported pattern matches of %MY_API_TOKEN%
+[Pipeline] {
+[Pipeline] bat
 
-### Upload Test Results
+C:\ProgramData\Jenkins\.jenkins\workspace\TrialProjectVansahDemo>vansah-connect -c **** 
+TOKEN has been saved successfully
+[Pipeline] bat
 
-- **Command**: 
+C:\ProgramData\Jenkins\.jenkins\workspace\TrialProjectVansahDemo>vansah-connect -f ./target/surefire-reports/testng-results.xml 
+- ...
+- Uploading Results to Vansah...
+✔ Results import is completed.
+[Pipeline] }
 
-
-`bat 'vansah-connect -f ./target/surefire-reports/testng-results.xml'`
-- **Description**: Uploads the test results as specified **testng-results.xml** file generated during the build, to Vansah. Ensure the file path matches the location of your **testng-results.xml**.
-![Vansah_UploadSuccess](https://github.com/testpointcorp/connect-images/blob/main/JenkinsPipelineForVansahAutomationDemo/Vansah_upload_success.png)
+  ```
 ## Notes
 
 - Due to the negative test case, the Jenkins job will **fail**, but it will upload the results as ‘PASSED’ for one and ‘FAILED’ for the other. 
 - Ensure that the file path to the **testng-results.xml** in `vansah-connect -f` command is correct and matches the actual location of your test results.
 - Double-check that the `VANSAH_API_TOKEN` credential ID matches the ID used in the Jenkins pipeline script.
+
+
 
