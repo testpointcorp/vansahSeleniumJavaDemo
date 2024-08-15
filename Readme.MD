@@ -37,7 +37,7 @@ Vansah's APIs enable the integration of Vansah Test Management App with various 
 
 **Step 2:** Open Eclipse and Import the Project as Maven Project.
 
- **Step 3:** Update `JIRA_ISSUE_KEY` with your **JIRA ISSUE** in  [BaseTests.java](https://github.com/testpointcorp/vansahSeleniumJavaDemo/blob/jenkins-job/src/test/java/testpack/BaseTests.java) 
+**Step 3:** Update `JIRA_ISSUE_KEY` with your **JIRA ISSUE** in  [BaseTests.java](https://github.com/testpointcorp/vansahSeleniumJavaDemo/blob/jenkins-job/src/test/java/testpack/BaseTests.java) 
     
    ```Java
  
@@ -58,12 +58,12 @@ Vansah's APIs enable the integration of Vansah Test Management App with various 
 	
 	*/
 
-    ```
+   ```
         
 
 
- **Step 4:**  Update the `@CustomAttributes`according to your Vansah board in [VansahIOTests.java](https://github.com/testpointcorp/vansahSeleniumJavaDemo/blob/jenkins-job/src/test/java/testpack/VansahIOTests.java) 
- ```Java
+**Step 4:**  Update the `@CustomAttributes`according to your Vansah board in [VansahIOTests.java](https://github.com/testpointcorp/vansahSeleniumJavaDemo/blob/jenkins-job/src/test/java/testpack/VansahIOTests.java) 
+    ```Java
    
    
       public class VansahIOTests extends BaseTests{
