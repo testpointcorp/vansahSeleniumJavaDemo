@@ -21,7 +21,7 @@ pipeline {
                 script {
                     try {
                         // Run Maven build
-                        bat 'mvn clean install'
+                        bat 'mvn clean install'  //Use 'sh' command for Linux
                         
                         // Run Maven tests if the build succeeds
                         bat 'mvn test'
