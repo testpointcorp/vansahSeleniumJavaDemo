@@ -100,8 +100,8 @@ Vansah's APIs enable the integration of Vansah Test Management App with various 
 **Step 5:** Run as Maven test
     
 
-## To Run as a Jenkins Pipline
-this project as a Jenkins Pipeline, follow the steps outlined [here](https://github.com/testpointcorp/vansahSeleniumJavaDemo/blob/jenkins-job/Jenkins_Pipeline.md). 
+## Running as a Jenkins Pipline
+To execute this project as a Jenkins Pipeline, follow the steps outlined [here](https://github.com/testpointcorp/vansahSeleniumJavaDemo/blob/jenkins-job/Jenkins_Pipeline.md). 
 
 
     
