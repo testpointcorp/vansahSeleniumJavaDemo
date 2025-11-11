@@ -30,7 +30,7 @@ Vansah's API can be used to integrate Vansah with various tools, automation and 
     Add VansahConnectToken in VansahNode.java File
     Token should be obtained from your Jira Workspace
     
-<a href="https://community.vansah.com/posts/how-to-generate-a-vansah-api-token-from-jira">Click to Know How to obtain your Vansah API Connect Token</a>
+<a href="https://help.vansah.com/en/articles/9824979-generate-a-vansah-api-token-from-jira">Click to Know How to obtain your Vansah API Connect Token</a>
 
 ### Step 4 
     
