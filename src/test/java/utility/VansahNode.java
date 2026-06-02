@@ -31,8 +31,8 @@ import org.apache.commons.lang3.StringUtils;
 public class VansahNode {
 
 	//--------------------------- ENDPOINTS -------------------------------------------------------------------------------
-	private static final String API_VERSION     = "v1";
-	private static final String VANSAH_URL      = "https://prod.vansahnode.app";
+	private static final String API_VERSION     = "v2";
+	private static final String VANSAH_URL      = "https://prod.vansah.com";
 	private static final String ADD_TEST_RUN    = VANSAH_URL + "/api/" + API_VERSION+ "/run";
 	private static final String ADD_TEST_LOG    = VANSAH_URL + "/api/" + API_VERSION+ "/logs";
 	private static final String UPDATE_TEST_LOG = VANSAH_URL + "/api/" + API_VERSION+ "/logs/";
